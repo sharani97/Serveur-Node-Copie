@@ -1,0 +1,24 @@
+{
+    "warn.weekly_notifs": {
+        "task":"warn.weekly_notifs",
+        "cron":"50 9 * * 1,3,5"
+    },
+
+    "warn.mid_week_invites": {
+        "task":"warn.mid_week_invites",
+        "cron":"0 11 * * 4"
+    },
+
+    "warn.mid_month_invites": {
+        "task":"warn.mid_month_invites",
+        "cron":"50 16 1,16 * *"
+    },
+    "warn.come_and_post": {
+        "task":"warn.come_and_post",
+        "cron":"50 3 * * 5"
+    },
+    "report.admin_all": {
+         "task":"report.admin_all",
+         "cron":"0 2 * * 1"
+     }
+ }

@@ -1,0 +1,22 @@
+// #!/usr/bin/env node
+
+let app = require('../server').app;
+let setup = require('../server').setup;
+
+let http = require('http');
+
+let ws_setup = require('../wsserver').ws_setup
+
+let server = http.createServer(app);
+
+setup().then(() => {
+    ws_setup(server);
+
+    server.listen(app.get('port'), function(){
+        var host = server.address().address;
+        var port = server.address().port;
+        console.log('🚀 Server listening on port:' + port);
+    });
+});
+
+module.exports = server; // for test suite

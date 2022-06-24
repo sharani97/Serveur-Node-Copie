@@ -1,0 +1,6 @@
+{
+    "report.admin_all": {
+         "task":"report.admin_all",
+         "cron":"0 2 * * 1"
+     }
+ }

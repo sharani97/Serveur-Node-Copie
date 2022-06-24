@@ -1,0 +1,50 @@
+{
+    "confirm": {
+        "subject":"Confirmation d'email",
+        "text": "Bonjour, merci de confirmer votre email en cliquant sur ce lien: {link}",
+        "body":"Bonjour, nous vous remercions de confirmer votre email pour pouvoir pleinement profiter de l'application.",
+        "preheader":"Vous y êtes presque, plus qu'un click pour valider votre email et pour pouvoir innover !",
+        "call_to_action":"Confirmer"
+    },
+    "new_admin_report": {
+        "subject":"Rapport Admin",
+        "text": "Bonjour, veuillez trouver ci-joint le rapport d'admin de cette semaine"
+    },
+    "new_mission_report": {
+        "subject":"Rapport de mission",
+        "text": "Bonjour, veuillez trouver ci-joint le rapport de mission demandé"
+    },
+    "invite_orgadmin": {
+        "subject":"Invitation de {sender} à rejoindre Idea-Heroes comme administrateur",
+        "text": "Bonjour, vous avez été invité(e) par {sender} à rejoindre Idea-Heroes comme administrateur/trie de {orgname} au sein de {entityname}."
+    },
+    "promote_orgadmin": {
+        "subject":"Promotion administrateur dans Idea-Heroes",
+        "text": "Bonjour, {sender} vous a promu(e) administrateur/trice de {orgname} au sein de {entityname}."
+    },
+    "promote_entadmin": {
+        "subject":"Promotion administrateur dans Idea-Heroes",
+        "text": "Bonjour, {sender} vous a promu(e) administrateur/trice de {entityname}."
+    },
+    "user_posted": {
+        "subject":"Nouvelle suggestion de {sender}",
+        "text": "Bonjour, {sender} vous a envoyé la suggestion suivante : {postTitle} {postDesc}."
+    },
+    "end_of_mission_report": {
+        "subject":"Rapport de fin de mission",
+        "text": "Bonjour, la mission {missionTitle} est arrivée à son terme. Vous trouverez-ci joint le rapport de fin de mission."
+    },
+    "mid_mission_reminder": {
+        "subject":"Mission en cours : \"{missionTitle}\"",
+        "text": "Plus que {daysRemaining} jours pour participer à la mission \"{missionTitle}\". Amenez votre pierre à l'édifice!"
+    },
+    "mid_mission_report": {
+        "subject":"Rapport de mission en cours",
+        "text": "Veuillez trouver ci-joint le rapport de mission \"{missionTitle}\", généré automatiquement."
+    },
+    "mission_locked":{
+        "subject":"Nouvelle Mission !",
+        "text": "Bonjour, vous avez été invité(e) à rejoindre la mission: \"{mission_title}\" proposée par {inviter}"
+    }
+
+}

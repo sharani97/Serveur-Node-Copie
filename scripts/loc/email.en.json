@@ -1,0 +1,13 @@
+{
+    "confirm": {
+        "subject":"Please confirmation your email",
+        "text": "Hello, please confirm your email by opening this link: {link}",
+        "body":"Hello, please confirm your email to allow you to make the most of the application.",
+        "teaser":"Almost there, one more click to validate your email and you'll be ready to innovate !",
+        "call_to_action":"Confirm"
+    },
+    "new_admin_report": {
+        "subject":"Admin report",
+        "text": "Hello, please find the admin report for this week attached"
+    }
+}

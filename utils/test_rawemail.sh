@@ -1,0 +1,1 @@
+aws ses send-email --from app@idea-heroes.com --destination ToAddresses=david.hockley@gmail.com,hockley@gamificationzone.com --message Subject={Data="test cli raw"},Body={Text={Data="Test body raw"}} --profile gz

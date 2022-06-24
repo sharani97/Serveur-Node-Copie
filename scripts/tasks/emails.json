@@ -1,0 +1,17 @@
+{
+    "user_posted":{},
+    "end_of_mission_report":{},
+    "mid_mission_report":{},
+    "mid_mission_reminder":{},
+    "invite_orgadmin": {},
+    "promote_orgadmin": {},
+    "promote_entadmin": {},
+    "mission_locked":{
+    },
+    "confirm":{
+        "html": {
+            "template":"simple"
+        }
+    }
+
+}

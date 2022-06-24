@@ -1,0 +1,85 @@
+en:
+
+
+
+
+  user_commented_owner:
+    title: Nouveau commentaire !
+    message:
+      zero: %{actor} a commenté sur votre %{object} %{object_title}.
+      one: %{actor} et un autre ont commenté sur votre %{object} %{object_title}.
+      many: %{actor} et %{count} autres ont commenté sur votre %{object} %{object_title}.
+
+ user_suggested_owner:
+    title: Nouvelle suggestion !
+    message:
+      zero: %{actor} a émis une suggestion sur votre idée %{object_title}.
+      one: %{actor} et un autre ont émis une suggestion sur votre idée %{object_title}.
+      many: %{actor} et %{count} autres ont émis une suggestion sur votre idée %{object_title}.
+
+  user_commented:
+    title: Nouveau commentaire !
+    message:
+      zero: %{actor} a commenté sur %{object} %{object_title}.
+      one: %{actor} et un autre ont commenté sur %{object} %{object_title}.
+      many: %{actor} et %{count} autres ont commenté sur %{object} %{object_title}.
+
+  object:
+    missions: la mission,
+    mission: la mission,
+    idea: l'idée,
+    ideas: l'idée,
+    posts: suggestion de mission
+    post: suggestion de mission
+
+  your_object:
+    mission: votre mission
+    missions: votre mission
+    idea: votre idée
+    ideas: votre idée
+
+  user_commented:
+    title: Nouveau commentaire !
+    message: %{actor} %{adjuct} %{verb} sur %{object}: %{object_title}.
+    push:  %{actor} %{adjuct} %{verb} sur %{object} %{object_title}.
+
+  user_posted:
+    title: Suggestion de mission de %{actor}
+    message: %{actor} a posté une suggestion de mission : %{object_title}.
+    push: %{actor} a posté une suggestion de mission : %{object_title}.
+
+  mission1_calling:
+    title: C'est à vous !
+    message: Vous n'avez pas encore proposé d'idée pour la mission "%{mission}. Votre avis nous est important !
+    push: Vous n'avez pas encore proposé d'idée pour la mission "%{mission}". Votre avis nous est important !
+
+  mission1_thankyou:
+    title: Ca bouge !
+    message: {actions} idées proposées pour la mission "%{mission}" Merci !!
+    push: %{actions} idées proposées pour la mission "%{mission}" Merci !!
+
+    mission2_calling:
+      title: C'est à vous !
+      message: Il vous reste encore {available} droit(s) de vote pour la mission "%{mission}". Votre avis nous est important !
+      push: Il vous reste encore {available} droit(s) de vote pour la mission "%{mission}". Votre avis nous est important !
+    
+    mission2_thankyou:
+      title: Ca bouge !
+      message: %{actions} votes enregistrés à ce jour pour la mission "%{mission}" Merci !!
+      push: %{actions} votes enregistrés à ce jour pour la mission "%{mission}" Merci !!
+    
+    mission3_calling:
+      title: C'est à vous !
+      message: Il vous reste %{available} credits à investir sur la mission "%{mission}". Votre avis nous est important !
+      push: Il vous reste %{available} droit(s) de vote pour la mission "%{mission}". Votre avis nous est important !
+    
+    mission3_thankyou:
+      title: Ca bouge !
+      message: %{actors} investisseurs  sur les idées de la mission "%{mission}" Merci !!
+      push: %{actors} investisseurs  sur les idées de la mission "%{mission}" Merci !!
+    
+    mission_locked_calling:
+      title: Ca bouge !
+      message: %{actors} personnes participent déjà à la mission "%{mission}", Venez vous aussi contribuer !!
+      push: %{actors} personnes participent déjà à la mission "%{mission}" Venez vous aussi contribuer !!
+

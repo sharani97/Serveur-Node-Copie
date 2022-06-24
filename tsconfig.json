@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "lib": ["es2017", "dom", "esnext.asynciterable"],
+      "module": "commonjs",
+      "sourceMap": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "removeComments": false,
+      "noImplicitAny": false,
+      "moduleResolution": "node",
+      "skipLibCheck": true,
+    },
+    "exclude": [
+      "typings",
+      "node_modules",
+      "server/typings",
+      "server/typings/index.d.ts"
+    ],
+    "paths": {
+      "@srv/*": [
+        "server/src/*"
+      ],
+      "@schemas/*": [
+        "server/src/app/dataAccess/schemas/*"
+      ]
+    }
+  }

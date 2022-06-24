@@ -1,0 +1,9 @@
+--sort
+--require=env-test
+--exit
+--timeout 5000
+--compilers ts-node/register
+--require source-map-support/register
+--full-trace
+--bail
+server/src/tests/**/*.ts

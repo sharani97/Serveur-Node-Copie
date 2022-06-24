@@ -1,0 +1,21 @@
+{
+    "credits":"credits_format",
+    "average":"decimal_format",
+    "like_up":"stat_format",
+    "like_down":"stat_format",
+    "likes_up":"stat_format",
+    "likes_down":"stat_format",
+    "comments":"stat_format",
+    "votes":"stat_format",
+    "nb_ideas":"stat_format",
+    "nb_comments":"stat_format",
+    "profit":"credits_format",
+    "profit_pct":"signed_pct_format",
+    "investment":"credits_format",
+    "nb_buyers":"stat_format",
+    "nb_votes":"stat_format",
+    "suggestions":"stat_format",
+    "none":"default_style",
+    "date":"date_style"
+
+}

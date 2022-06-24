@@ -1,0 +1,8 @@
+{
+    "Source": "Idea Heroes vous parle <app@idea-heroes.com>",
+    "Destination": {
+        "ToAddresses": ["david.hockley@gmail.com", "hockley@gamificationzone.com"]
+    },
+    "Template": "dev_barebones_en",
+    "TemplateData": "{\"body\":\"Test body\", \"title\":\"Test subject\"}"
+}

@@ -1,0 +1,23 @@
+{
+    "asynchronous_jobs":false,
+    "env":"dev",
+    "appname":"HyperSeries vous parle [DEV]",
+    "domain":"dev.hyperseries.com",
+    "email-domain":"hyperseriescom",
+    "image-domain":"devimages.hyperseries.com",
+    "port":3010,
+    "aws":"ben",
+    "features":{
+        "missions":true
+    },
+    "files": {
+        "report":{
+            "s3":"com.tribiew.dev-reports",
+            "url":"http://com.hyperseries.dev-images.s3-website.eu-west-3.amazonaws.com"
+        },
+        "image":{
+            "s3":"com.tribiew.img.dev",
+            "url":"http://com.tribiew.img.dev.s3-website.eu-west-1.amazonaws.com"
+        }
+    }
+}

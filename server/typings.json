@@ -1,0 +1,12 @@
+{
+    "globalDependencies": {
+        "express": "registry:dt/express#4.0.0+20160317120654",
+        "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160602151406",
+        "mime": "registry:dt/mime#0.0.0+20160316155526",
+        "serve-static": "registry:dt/serve-static#0.0.0+20160606155157"
+    },
+    "dependencies": {
+        "bcrypt-nodejs": "registry:dt/bcrypt-nodejs#0.0.0+20160428043022",
+        "jsonwebtoken": "registry:npm/jsonwebtoken#7.1.8+20160811031426"
+    }
+}

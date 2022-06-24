@@ -1,0 +1,65 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/temp
+/.tmp
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.coverage
+.c9/
+.coverage
+/scripts/.idea
+*.launch
+.settings/
+*.sublime-workspace
+*.pyc 
+*.log
+jobs*.log.*
+test_*.log 
+test_*.log.*
+test*.log.*
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+/public/
+/server/public/
+
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+*.diff
+.nyc_output/
+yarn-error.log
+
+# app files 
+
+/public/job/*.csv
+/public/uploads/
+/public/images/
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,85 @@
+{
+    "env":"default",
+    "dbConfig": {
+        "host": "localhost",
+        "port": 27017,
+        "collection":"quickStart"
+    },
+    "appname":"Game Core",
+    "domain":"localhost",
+    "root_admin":"david.hockley@gmail.com",
+    "email-domain":"localhost",
+    "aws":"gz",
+    "zone":"eu-west-1",
+    "email-zone":"eu-west-1",
+    "email":{
+        "zone":"eu-west-1",
+        "config-set":"IDH"
+    },
+    "python":"python",
+    "port":3010,
+    "jwtSecret": "hyperseriestribiew3141596127",
+    "googleClientId":"<none>",
+    "googleClientSecret":"<none>",
+    "asynchronous_jobs":true,
+    "features":{
+        "missions":false
+    },
+    "settings":{
+        "start_credits":5000,
+        "sell_penalty":5
+    },
+
+    "bucket":"com.gamecore.default",
+    "files": {
+        "report":{
+            "s3":"com.gzone.s3test",
+            "url":"http://com.idea-heroes.reports.s3-website.eu-west-3.amazonaws.com"
+        },
+        "image":{
+            "s3":"com.gzone.s3test",
+            "uploadS3":"com.gzone.s3upload",
+            "url":"http://com.gzone.s3test.s3-website.eu-west-3.amazonaws.com"
+        }
+    },
+    "comment_rewards":"This shoud be loaded elsewhere",
+    "rewards":{
+        "account_created":{"ap":5, "kp":1},
+
+        "idea":{"ap":4, "kp":1},
+        "like_idea":{"ap":1, "kp":0.3},
+        "comment_idea":{"kp":0.3},
+        "phase1_top":{"ap":2, "ip":15},
+        "phase1_top5pct":{"ap":2, "ip":15},
+        "phase1_top20pct":{"ap":1, "ip":7},
+        "phase1_passed":{"ap":1, "ip":5},
+
+
+        "vote":{"ap":0.4, "kp":0.1},
+        "phase2_top":{"ip":15},
+        "phase2_top5pct":{"ip":5},
+        "phase2_top20pct":{"ip":2},
+        "phase2_passed":{"ip":5, "kp":2},
+
+
+        "profits":{"ip":10, "ap":5},
+        "phase3_activity":{"ap":10},
+        "phase3_popularity":{"ip":100},
+        "phase3_top5pct":{"ap":2, "ip":10},
+        "phase3_top20pct":{"ap":1, "ip":5},
+        "phase3_top":{"ap":4, "ip":20, "kp":10},
+
+        "idea_suggestion":{"ap":5, "kp":1},
+        "like_idea_suggestion":{"ap":1, "kp":0.3},
+        "comment_suggestion":{"ap":0.3, "kp":0.3},
+
+        "post":{"ap":5, "kp":1},
+        "post_like":{"ap":1, "kp":0.3},
+        "comment_post":{"kp":0.3},
+
+        "create_friendship":{"kp":2},
+        "accept_friendship":{"kp":2}
+
+    },
+    "isTest":false
+}

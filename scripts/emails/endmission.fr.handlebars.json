@@ -1,0 +1,20 @@
+{
+    "name":"Anne Sophie de Brun",
+    "missiontitle":"Quel nom pour notre Mission ?",
+    "preheader":"Une mission vient d'arriver à son terme, vos récompenses sont les suivantes...",
+    "hero_img":"test_cover.jpg",
+    "link":"dev.idea-heroes.com",
+    "points":{
+        "ap":27,
+        "ip":47,
+        "kp":8,
+        "total":82
+    },
+    "new_points":{
+        "ip":3,
+        "kp":2,
+        "total":5
+    }
+    
+
+}

@@ -1,0 +1,1184 @@
+---
+openapi: 3.0.0
+servers:
+- url: https://localhost:3000/api
+- url: http://localhost:3000/api
+info:
+  description: "This is a the GZone digger server API.  \nYou can find out more elswhere
+    (not really).\n"
+  version: 0.0.1-oas3
+  title: GZone iDigg
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: hockley@gamificationzone.com
+tags:
+
+- name: friends
+  description: Friends operations (not yet implemented)
+- name: groups
+  description: A group is a list of people
+- name: NYI
+  description: Not Yet Implemented !
+- name: WIP
+  description: Work in progress
+- name: ideas
+  description: Everything ideas
+- name: job
+  description: job operations
+- name: messages
+  description: messages (not yet implemented)
+- name: missions
+  description: Everything mission
+- name: orgs
+  description: Everything organization/tenant
+- name: profile
+  description: Operations on current user
+- name: user
+  description: user end points
+
+paths:
+
+  "/login":
+    post:
+      tags:
+      - user
+      - profile
+      summary: Logs user into the system
+      operationId: loginUser
+      requestBody:
+        "$ref": "#/components/requestBodies/LoginUser"
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientDataResponse"
+        '400':
+          description: Invalid username/password supplied
+  "/register":
+    post:
+      tags:
+      - user
+      - profile
+      summary: Logs registers into the system
+      operationId: registerUser
+      requestBody:
+        "$ref": "#/components/requestBodies/RegisterUser"
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientDataResponse"
+        '400':
+          description: Invalid username/password supplied
+
+  "/me":
+    get:
+      tags:
+      - profile
+      summary: get my profile data
+      description: gets the full data for the current user
+      operationId: getMyProfile
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FullUser"
+        '405':
+          description: Invalid input
+      security:
+      - bearerAuth: []
+  "/me/friend/{userId}":
+    put:
+      tags:
+      - profile
+      - friends
+      - NYI
+      summary: invite to be my friend, or accept friendship invite
+      description: |
+        **Nominal case**: Invitee id is added to pending friends of the current user.
+
+        **Already friends**: If the invitee is already in friends or the pending friends, does nothing.
+
+        **Already invitee**: If the current user is already in the pending friends of the invitee, the users are moved to each other's friends lists, and removed from their pending friends lists.
+      operationId: inviteFriend
+      parameters:
+      - name: userId
+        in: path
+        description: id of friend to invite
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '404':
+          description: userId/user not found
+        '405':
+          description: Invalid input
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - profile
+      - friends
+      summary: cancel invite or abandon the friendship
+      description: "removes the other user's id from the current user's friends and
+        pending friends, and removes the current user from the other user's friends.
+        \n"
+      operationId: cancelFriendInvite
+      parameters:
+      - name: userId
+        in: path
+        description: ex-friend's id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '404':
+          description: userId not found in friends or pending friends
+        '405':
+          description: Invalid input
+      security:
+      - bearerAuth: []
+  "/me/username/{username}":
+    put:
+      tags:
+      - profile
+      summary: update my username
+      description: updates the user with the new username, if no such username already
+        exists.
+      operationId: updateMyUsername
+      parameters:
+      - name: username
+        in: path
+        description: new (requested) username.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '403':
+          description: username already exists elsewhere, or is forbidden for other
+            reasons
+      security:
+      - bearerAuth: []
+  "/me/profileurl/{profileId}":
+    put:
+      tags:
+      - profile
+      - NYI
+      summary: update my username
+      description: updates the user with the new username, if no such nickname already
+        exists.
+      operationId: updateMyUsername
+      parameters:
+      - name: profileId
+        in: path
+        description: new (requested) profile pic.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '403':
+          description: User is not allowed to use this profile pic
+      security:
+      - bearerAuth: []
+  "/me/settings":
+    get:
+      tags:
+      - profile
+      summary: retrieve my settings
+      operationId: retrieveMySettings
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UserSettings"
+        '405':
+          description: Invalid input
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - profile
+      summary: update my settings
+      operationId: updateMySettings
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '405':
+          description: Invalid input
+      security:
+      - bearerAuth: []
+  "/ideas":
+    get:
+      tags:
+      - ideas
+      summary: get all ideas
+      operationId: getAllIdeas
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Idea"
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - ideas
+      summary: Add a new idea (to an active mission)
+      description: checks that the user has accepted the mission and that the mission
+        is still open for idea suggestions
+      operationId: addIdea
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '400':
+          description: Mission not open to ideas
+        '403':
+          description: User not invited to the mission
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Idea"
+        description: Add an idea suggestion to a mission
+        required: true
+  "/ideas/{ideaId}":
+    get:
+      tags:
+      - ideas
+      summary: Find idea by ID
+      description: Returns a single idea
+      operationId: getIdeaById
+      parameters:
+      - name: ideaId
+        in: path
+        description: ID of ideas to return
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Idea"
+        '400':
+          description: Invalid ID supplied
+        '403':
+          description: User not allowed to access idea 
+        '404':
+          description: Idea not found
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - ideas
+      summary: Update an existing idea 
+      operationId: updateIdea
+      parameters:
+      - name: ideaId
+        in: path
+        description: ID of idea to update
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiResponse"
+        '400':
+          description: generic error
+        '404':
+          description: Idea not found
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Idea"
+        description: Idea object that needs to be updated
+        required: true
+    delete:
+      tags:
+      - ideas
+      summary: Deletes an idea
+      operationId: deleteIdea
+      parameters:
+      - name: ideaId
+        in: path
+        description: ID of ideas to return
+        required: true
+        schema:
+          type: string
+      responses:
+          '400':
+            description: Invalid ID supplied
+          '404':
+            description: Pet not found
+      security:
+      - bearerAuth: []
+  "/ideas/order":
+    post:
+      tags:
+      - ideas
+      - NYI
+      summary: buy (or sell) shares related to an idea
+      operationId: placeOrder
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Order"
+      responses:
+        '200':
+          description: successful operation
+  "/ideas/order/{orderId}":
+    delete:
+      tags:
+      - ideas
+      - NYI
+      summary: cancel oder
+      operationId: cancelOrder
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: orderId
+        in: path
+        description: ID of idea that needs to be updated
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Order"
+      responses:
+        '200':
+          description: successful operation
+  "/ideas/mission_id/{missionId}":
+    get:
+      tags:
+      - missions
+      - ideas
+      summary: Get ideas in mission
+      operationId: getMissionIdeas
+      parameters:
+      - name: missionId
+        in: path
+        description: The id of the mission
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Idea"
+  
+  
+  "/ideas/{ideaId}/vote/{nb}":
+    put:
+      tags:
+      - ideas
+      - NYI
+      - WIP
+      summary: vote (or update vote) on an idea
+      operationId: ideaVote
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: ideaId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: nb
+        in: path
+        required: true
+        schema:
+          type: number
+          minimum: -1
+          maximum: 2
+      responses:
+        '200':
+          description: successful operation
+
+  "/groups":
+    post:
+      tags:
+      - groups
+      - orgs
+      summary: Create a group in a given org
+      operationId: createGroup
+      security:
+      - bearerAuth: []
+      responses:
+        default:
+          description: successful operation. Requires a *orgadmin* role in the creating user.
+      requestBody:
+        "$ref": "#/components/schemas/Group"
+    get:
+      tags:
+      - groups
+      summary: get the groups
+      description: only allowed for admin users, usually retrieved as those available
+        for current user, or for the org, for orgadmins
+      operationId: getGroups
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Group"
+  "/groups/{groupId}":
+    get:
+      tags:
+      - groups
+      summary: Get a specific group
+      operationId: getGroup
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Group"
+    put:
+      tags:
+      - groups
+      summary: update a specific group
+      operationId: updateGroup
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+      requestBody:
+        "$ref": "#/components/schemas/Group"
+
+  "/missions":
+    post:
+      tags:
+      - missions
+      summary: Create a mission
+      operationId: createMission
+      security:
+      - bearerAuth: []
+      responses:
+        default:
+          description: successful operation. Requires a *orgadmin* role in the creating
+            user.
+      requestBody:
+        "$ref": "#/components/requestBodies/missionRequest"
+    get:
+      tags:
+      - missions
+      summary: get the missions
+      description: only allowed for admin users, usually retrieved as those available
+        for current user, or for the org, for orgadmins
+      operationId: getMissions
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Mission"
+  "/missions/{missionId}":
+    get:
+      tags:
+      - missions
+      summary: Get a specific mission
+      operationId: getMission
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Mission"
+    put:
+      tags:
+      - missions
+      summary: update a specific mission
+      operationId: update mission
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+      requestBody:
+        "$ref": "#/components/requestBodies/missionRequest"
+
+  "/missions/current":
+    get:
+      tags:
+      - missions
+      - NYI
+      summary: Get current (= accepted) missions for current user
+      operationId: getCurrentMission
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Mission"
+  "/missions/available":
+    get:
+      tags:
+      - missions
+      summary: Get available (= user has been invited) missions not yet finished
+        for current user
+      operationId: getAvailableMission
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Mission"
+  "/missions/{missionid}/accept":
+    put:
+      tags:
+      - missions
+      - NYI
+      summary: Accept an available (= user has been invited, but hasn't accepted) mission for current user; NYI/WIP
+      operationId: acceptAvailableMission
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+  "/missions/{missionID}/members":
+    get:
+      tags:
+      - missions
+      - users
+      summary: get mission members 
+      operationId: getMissionUsers
+      parameters:
+      - name: missionId
+        in: path
+        description: The id of the mission
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/User"
+    put:
+      tags:
+      - missions
+      - users
+      summary: add a specific user or list of users to a mission, by email 
+      operationId: addUserToMission
+      parameters:
+      - name: missionId
+        in: path
+        description: The id of the mission
+        required: true
+        schema:
+          type: string
+      requestBody:
+        "$ref": "#/components/requestBodies/StringArray"
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Mission"
+    delete:
+      tags:
+      - missions
+      - users
+      summary: remove a specific user or group of users from a mission, by email 
+      operationId: banUserFromMission
+      parameters:
+      - name: missionId
+        in: path
+        description: The id of the mission
+        required: true
+        schema:
+          type: string
+      requestBody:
+        "$ref": "#/components/requestBodies/StringArray"
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Mission"
+
+  "/missions/{missionID}/tovote":
+    get:
+      tags:
+      - missions
+      - ideas
+      - NYI
+      summary: get ideas in mission that the current user has not yet voted on. NYI 
+      operationId: getMissionToVoteIdeas
+      parameters:
+      - name: missionId
+        in: path
+        description: The id of the mission
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Idea"
+  
+  "/orgs/":  
+    post:
+      tags:
+      - orgs
+      summary: creates an org
+      description: Creates an org and add users to agadmin role in org. Requires a *admin* role in the creating user. Users currently not in the DB are created as pending users.
+      operationId: createOrg
+      security:
+      - bearerAuth: []
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        "$ref": "#/components/requestBodies/orgRequest"
+    put:
+      tags:
+      - orgs
+      summary: update an org
+      description: update an org. Can add users to agadmin role in org. Requires an admin role, or an *orgadmin* role specific to the org.
+      operationId: createOrg
+      security:
+      - bearerAuth: []
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        "$ref": "#/components/requestBodies/orgRequest"
+  "/orgs/{orgid}/promote":
+    put:
+      tags:
+      - user
+      - orgadmin
+      - orgs
+      summary: promotes a user to an org
+      description: Add users to agadmin role in org. Requires a *orgadmin* role in the specific org, or an *admin* role. Users currently not in the DB are created as pending users.
+      operationId: promote user to orgadmin
+      security:
+      - bearerAuth: []
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        "$ref": "#/components/requestBodies/StringList"
+  
+  "/users/username/{username}":
+    get:
+      tags:
+      - user
+      summary: Get user by user name
+      operationId: getUserByName
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: username
+        in: path
+        description: The name that needs to be fetched. Use user1 for testing.
+        required: true
+        example: user1
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+components:
+  schemas:
+    StringArray:
+      type: array
+      items:
+        type: string 
+        
+    Order:
+      type: object
+      properties:
+        _id:
+          type: string
+        ownerId:
+          type: string
+        ideaId:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        price:
+          type: integer
+          format: int32
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    ClientDataResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            jwt:
+              type: string
+            roles:
+              type: array
+              items:
+                type: string
+                enum:
+                - user
+                - dev
+                - orgadmin
+                - admin
+                default: user
+    Org:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    OrganisationUser:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    Group:
+      type: object
+      required:
+      - org
+      - name 
+      properties:
+        org:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        members:
+          type: array
+          description: _id s of users in the group 
+
+    LoginUser:
+      type: object
+      required:
+      - password
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+          format: password
+    RegisterUser:
+      type: object
+      required:
+      - password
+      - email
+      - username
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+          format: password
+    FullUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        acceptedMissions:
+          type: array
+          items:
+            type: string
+        setting:
+          type: object
+        userStatus:
+          type: integer
+          format: int32
+          description: User Status
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        last_cnx:
+          type: string
+          format: date
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        token:
+          type: string
+        points:
+          type: array
+          description: user points (scores, mission money, xp...)
+          items:
+            "$ref": "#/components/schemas/Points"
+     
+        push_tokens:
+          type: array
+          description: client tokens for push services
+          items:
+            "$ref": "#/components/schemas/PushToken"
+        settings:
+          "$ref": "#/components/schemas/UserSettings"
+        userStatus:
+          type: string
+          description: User Status - is the account pending, is it created, has the email been validated ?
+          enum:
+          - pending
+          - created
+          - validated
+    Points:
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of the point type
+        ptype:
+          type: string
+          description: point category 
+          enum:
+          - missions
+        amount:
+          type: number
+          description: amount the user has pf this point
+        _id:
+          type: string 
+          description: reference to an object (e.g. a mission)
+
+    PushToken:
+      type: object
+      properties:
+        deviceid:
+          type: string
+          description: id describing the device
+        type:
+          type: string
+          enum:
+          - ios
+          - web
+          - android
+        token:
+          type: string
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Vote:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: longmongodbObjectId
+        idea_id:
+          type: string
+          example: idea:42
+        voter_id:
+          type: string
+          example: Yaka
+        vote_nb:
+          type: integer
+          example: 2
+    Idea:
+      type: object
+      required:
+      - mission_id
+      - title
+      - description
+      properties:
+        _id:
+          type: string
+          example: longmongodbObjectId
+        mission_id:
+          type: string
+          example: improve_v1
+        title:
+          type: string
+          example: let's make something wonderful
+        description:
+          type: string
+          example: this is a description for the idea. let's make something wonderful
+            and tell the world about it
+        status:
+          type: string
+          description: idea status
+          enum:
+          - wip
+          - proposed
+          - abandonned
+          - phase2
+        votes:
+          type: array
+          description: this is a virtual field, uses a DB merge (populate)
+          items:
+            "$ref": "#/components/schemas/Vote"
+    UserSettings:
+      type: object
+    Mission:
+      type: object
+      required:
+      - title
+      properties:
+        _id:
+          type: string
+        org:
+          type: string
+          description: organisation id
+        title:
+          type: string
+          example: doggie
+        start_date:
+          type: string
+          format: date
+        end_submit_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        end_vote_date:
+          type: string
+          format: date
+        start_credits:
+          type: number
+          description: number of mission credits allocated for the mission
+        status:
+          type: string
+          description: mission status
+          enum:
+          - wip
+          - locked
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+  requestBodies:
+    StringArray:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/StringArray"
+    orgRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+            - name
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              invitees:
+                type: array
+                items:
+                  type: string
+                  format: email
+              
+    missionRequest:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/Mission"
+    LoginUser:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/LoginUser"
+    RegisterUser:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/RegisterUser"
+    StringList:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+    UserArray:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/User"
+      description: List of user object
+      required: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

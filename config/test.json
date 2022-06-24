@@ -1,0 +1,16 @@
+{
+    "env":"test",
+    "dbConfig": {
+        "collection": "testDB"
+    },
+    "asynchronous_jobs": true,
+    "python": "python3",
+    "domain": "localhost",
+    "aws":"gz",
+    "zone":"eu-west-1",
+    "port": 3020,
+    "email-domain": "test.org",
+    "bucket":"com.gamecore.dh.test",
+    "isTest":true
+
+}

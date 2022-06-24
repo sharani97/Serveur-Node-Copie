@@ -1,0 +1,78 @@
+{
+    "simple" : {
+        "locs" :["fr","en"],
+        "path": "simple",
+        "template_id": "simple_cta",
+        "subject":{
+            "fr":"{{title}}",
+            "en":"{{title}}"
+        },
+        "body":{
+            "fr":"{{body}}",
+            "en":"{{body}}"
+        }
+    },
+    "barebones" : {
+        "locs" :["fr","en"],
+        "template_id": "barebones",
+        "subject":{
+            "fr":"{{title}}",
+            "en":"{{title}}"
+        },
+        "body":{
+            "fr":"{{body}}",
+            "en":"{{body}}"
+        }
+    },
+    "come_and_post" : {
+        "locs" :["fr","en"],
+        "path":"come_and_post",
+        "subject":{
+            "fr":"Votre actualité sur Idea-Heroes",
+            "en":"Your contributions to Idea-Heroes"
+        },
+        "body":{
+            "fr": "Bonjour {{name}} ! Vous avez une idée qui pourrait aider notre organisation à s’améliorer ?  N'hésitez pas à la proposer dans la boite à idées !",
+            "en": "Hello {{name}}! If you have an idea that could help our organisation improve? Feel free to suggest it in the idea drop box!"
+        }
+    },
+    "midweek_invite" : {
+        "locs" :["fr","en"],
+        "path": "midweek_invite",
+        "template_id": "midweek_invite",
+        "subject":{
+            "fr":"Idea-Heroes : Votre avis les interesse !",
+            "en":"Idea-Heroes : They're interested in your opinion!"
+        },
+        "body":{
+            "fr":"{{sender}} {{#if others_nb > 0 }} et {{others_nb} autres on réagi à vos contributions. Répondez-leur :) {{else}} a réagi à votre contribution, répondez-lui :) {{/if}",
+            "en":"{{sender}} {{#if others_nb > 0 }} and {{others_nb} reacted to your contributions. Answer them :) {{else}} reacted to your contribution. Now it's your turn to repond :) {{/if}"
+        }
+    },
+    "pendinginvites" : {
+        "locs" :["fr","en"],
+        "path": "pendinginvites",
+        "template_id": "pendinginvites",
+        "subject":{
+            "fr":"Idea-Heroes : Votre profil les interesse !",
+            "en":"Idea-Heroes : They're interested in your profile!"
+        },
+        "body":{
+            "fr":"{{sender}} {{#if others_nb > 0 }} et {{others_nb} autres vous ont invité à rejoindre leur réseaux. {{else}} vous a invité à rejoindre son réseau {{/if}",
+            "en":"{{sender}} {{#if others_nb > 0 }} et {{others_nb} autres vous ont invité à rejoindre leur réseaux. {{else}} vous a invité à rejoindre son réseau {{/if}"
+        }
+    },
+    "endmission" : {
+        "locs" :["fr","en"],
+        "path": "endmission",
+        "template_id": "endmission",
+        "subject":{
+            "fr":"Fin de la mission {{missiontitle}}",
+            "en":"End of the {{missiontitle}} mission"
+        },
+        "body":{
+            "fr":"La mission \"{{missiontitle}}\" est terminée. {{#if points }} Vous avez gagné {{points.total}} points lors de la mission. {{/if} {{#if new_points}} En raison de la qualité de vos contributions vous avez reçu {{new_points.total}} points supplémentaires.{{/if}}",
+            "en":"The \"{{missiontitle}}\" mission is over. {{#if points }} You won {{points.total}} points during the mission. {{/if} {{#if new_points}} Due to the quality of your contributions you have received an additional {{new_points.total}} points.{{/if}}"
+        }
+    }
+}

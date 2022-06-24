@@ -1,0 +1,106 @@
+{
+    "objectTypes":{
+        "post":"suggestion de mission",
+        "comments":"commentaire",
+        "comment":"commentaire",
+        "idea":"proposition",
+        "user":"amitié",
+        "like":"évaluation",
+        "mission":"mission"
+    },
+    "mission_locked": {
+        "title":"Nouvelle mission !",
+        "message":"Vous êtes invités à rejoindre une mission {mission_type} : {mission_title}",
+        "push": "{inviter} vous a invité à une mission de type {mission_type} : {mission_title}"
+    },
+    "mission_finished": {
+        "title":"Mission finie!",
+        "message":"La mission {mission_title} est arrivée à son terme. Vous avez gagné {points} points. Bravo!",
+        "push": "La mission {mission_title} est arrivée à son terme. Vous avez gagné {points} points. Bravo!"
+    },
+
+    "user_messaged": {
+        "title":"Message chat",
+        "message":"{sender} vous a envoyé un message.",
+        "push": "n/a"
+    },
+
+
+    "user_messaged_plural": {
+        "title":"Message chat",
+        "message":"{sender} vous a envoyé {nb} messages.",
+        "push": "n/a"
+    },
+
+    "friendship_request": {
+        "title":"Demande Réseau",
+        "message":"Bonjour {target}, je souhaiterais faire partie de votre réseau.",
+        "push": "{sender} vous a envoyé une invitation à rejoindre son réseau"
+    },
+    "friendship_accepted": {
+        "title":"Demande Acceptée !",
+        "message":"Bonjour {target}, bienvenue dans mon réseau!",
+        "push": "{sender} a accepté votre invitation à rejoindre votre réseau"
+    },
+
+    "karma_friend": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour vous remercier",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "karma_generic": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour votre {type} : {title}",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "karma_comment": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour votre commentaire : {title}",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "karma_comments": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour votre commentaire : {title}",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "karma_idea": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour votre proposition : {title}",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "karma_post": {
+        "title":"Karma de {sender} !",
+        "message":"{sender} vous a envoyé des points karma pour votre suggestion : {title}",
+        "push": "{sender} vous a envoyé des points karma"
+    },
+    "user_liked": {
+        "title":"{sender} a évalué votre {type} !",
+        "message":"{sender} a évalué votre {type}  : {title}",
+        "push": "{sender} a évalué votre {type} !"
+    },
+    "like_generic": {
+        "title":"{sender} a évalué votre {type} !",
+        "message":"{sender} a évalué votre {type}  : {title}",
+        "push": "{sender} a évalué votre {type} !"
+    },
+    "like_comment": {
+        "title":"{sender} a évalué votre commentaire !",
+        "message":"{sender} a évalué votre commentaire : {title}",
+        "push": "{sender} a évalué votre commentaire !"
+    },
+    "like_idea": {
+        "title":"{sender} a évalué votre proposition !",
+        "message":"{sender} a évalué votre proposition : {title}",
+        "push": "{sender} a évalué votre proposition"
+    },
+    "like_post": {
+        "title":"{sender} a évalué votre suggestion!",
+        "message":"{sender} a évalué votre suggestion : {title}",
+        "push": "{sender} a évalué votre suggestion"
+    },
+    "like_suggestion": {
+        "title":"{sender} a évalué votre suggestion!",
+        "message":"{sender} a évalué votre suggestion : {title}",
+        "push": "{sender} a évalué votre suggestion"
+    }
+}

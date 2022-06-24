@@ -1,0 +1,28 @@
+{
+    "env":"prod",
+    "dbConfig": {
+        "host": "localhost",
+        "port": 27017,
+        "collection":"hs-prod"
+    },
+    "appname":"HyperSeries",
+    "domain":"hyperseries.com",
+    "email-domain":"hyperseries.com",
+    "image-domain":"hyperseries.com",
+    "port":3010,
+    "aws":"gz",
+    "features":{
+        "missions":true
+    },
+    "files": {
+        "report":{
+            "s3":"com.hyperseries.prod-reports",
+            "url":"http://hyperseries.prod-images.s3-website.eu-west-3.amazonaws.com"
+        },
+        "image":{
+            "s3":"com.hyperseries.prod-images",
+            "url":"http://com.hyperseries.prod-images.s3-website.eu-west-3.amazonaws.com",
+            "toto":"should be could front"
+        }
+    }
+}

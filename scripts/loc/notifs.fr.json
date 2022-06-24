@@ -1,0 +1,82 @@
+{
+
+    "adjunct":{
+        "none":" ",
+        "one":"et 1 autre personne",
+        "many":"et {nb} autres personnes"
+    },
+    "verb_comment":{
+        "one":"a commenté",
+        "many":"ont commenté"
+    },
+    "verb_suggest":{
+        "one":"a émis une suggestion",
+        "many":"ont émis une suggestion"
+    },
+    "object":{
+        "missions":"la mission",
+        "mission":"la mission",
+        "idea":"l'idée",
+        "ideas":"l'idée",
+        "posts":"suggestion de mission",
+        "post":"suggestion de mission",
+        "comments":"suggestion d'amélioration",
+        "comment":"suggestion d'amélioration"
+    },
+    "your_object":{
+        "mission":"votre mission",
+        "missions":"votre mission",
+        "idea":"votre idée",
+        "ideas":"votre idée"
+    },
+    "user_commented": {
+        "title":"Nouveau commentaire !",
+        "message":"{actor} {adjuct} {verb} sur {object}: {object_title}.",
+        "push": "{actor} {adjuct} {verb} sur {object} {object_title}."
+    },
+    "user_posted": {
+        "title":"Suggestion de mission de {actor}",
+        "message":"{actor} a posté une suggestion de mission : {object_title}.",
+        "push": "{actor} a posté une suggestion de mission : {object_title}."
+    },
+    "user_commented_owner": {
+        "title":"Nouvelle suggestion !",
+        "message":"{actor} {adjuct} {verb} sur {your_object} {object_title}.",
+        "push": "{actor} {adjuct} {verb} sur {your_object} {object_title}."
+    },
+    "mission1_calling": {
+        "title":"C'est à vous !",
+        "message":"Vous n'avez pas encore proposé d'idée pour la mission \"{mission}\". Votre avis nous est important !",
+        "push": "Vous n'avez pas encore proposé d'idée pour la mission \"{mission}\". Votre avis nous est important !"
+    },
+    "mission1_thankyou": {
+        "title":"Ca bouge !",
+        "message":"{actions} idées proposées pour la mission \"{mission}\" Merci !!",
+        "push": "{actions} idées proposées pour la mission \"{mission}\" Merci !!"
+    },
+    "mission2_calling": {
+        "title":"C'est à vous !",
+        "message":"Il vous reste encore {available} droit(s) de vote pour la mission \"{mission}\". Votre avis nous est important !",
+        "push": "Il vous reste encore {available} droit(s) de vote pour la mission \"{mission}\". Votre avis nous est important !"
+    },
+    "mission2_thankyou": {
+        "title":"Ca bouge !",
+        "message":"{actions} votes enregistrés à ce jour pour la mission \"{mission}\" Merci !!",
+        "push": "{actions} votes enregistrés à ce jour pour la mission \"{mission}\" Merci !!"
+    },
+    "mission3_calling": {
+        "title":"C'est à vous !",
+        "message":"Il vous reste {available} credits à investir sur la mission \"{mission}\". Votre avis nous est important !",
+        "push": "Il vous reste {available} droit(s) de vote pour la mission \"{mission}\". Votre avis nous est important !"
+    },
+    "mission3_thankyou": {
+        "title":"Ca bouge !",
+        "message":"{actors} investisseurs  sur les idées de la mission \"{mission}\" Merci !!",
+        "push": "{actors} investisseurs  sur les idées de la mission \"{mission}\" Merci !!"
+    },
+    "mission_locked_calling": {
+        "title":"Ca bouge !",
+        "message":"{actors} personnes participent déjà à la mission \"{mission}\", Venez vous aussi contribuer !!",
+        "push": "{actors} personnes participent déjà à la mission \"{mission}\" Venez vous aussi contribuer !!"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "env":"idev",
+    "asynchronous_jobs":false,
+    "domain":"localhost",
+    "email-domain":"idea-heroes.com",
+    "python":"python"
+}

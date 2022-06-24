@@ -1,0 +1,2062 @@
+swagger: '2.0'
+info:
+  title: Blueprint Test API
+  version: ''
+  description: |-
+    Test of blueprint documentation system
+
+    ## API Blueprint
+
+    More bla bla ?
+paths:
+  '/orgs/{id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: Get an Org
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - &ref_0
+          name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+      produces:
+        - application/json
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: Update an Org
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - *ref_0
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              max_mission_nb:
+                type: number
+                description: this can only be updated by admins
+              max_user_nb:
+                type: number
+                description: this can only be updated by admins
+            required:
+              - name
+      produces:
+        - application/json
+  '/orgs/{id}/usercount':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              count: 42
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                description: the number of users in org
+      summary: Get Org User Count
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+      produces:
+        - application/json
+  '/orgs/{id}/promote/':
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: PromoteSeveral
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              emails:
+                type: array
+      produces:
+        - application/json
+  '/orgs/{id}/demote/':
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: DemoteSeveral
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              emails:
+                type: array
+      produces:
+        - application/json
+  '/orgs/{id}/demote/{email}':
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: DemoteOne
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+        - name: email
+          in: path
+          description: |
+
+            The Email of the promotee
+          required: true
+          type: string
+      produces:
+        - application/json
+  '/orgs/{id}/promote/{email}':
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: PromoteOne
+      description: ''
+      tags:
+        - Orgs
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the org
+          required: true
+          type: string
+        - name: email
+          in: path
+          description: |
+
+            The Email of the promotee
+          required: true
+          type: string
+      produces:
+        - application/json
+  /orgs:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: Org Name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+                lowername: org_name
+                members:
+                  - '[''1415203908'''
+                  - '''1415203847'']'
+                admins:
+                  - '[''1415203847'']'
+                max_mission_number: 5
+                max_user_number: 5
+          schema:
+            type: array
+            items: {}
+      summary: List All Orgs
+      description: ''
+      tags:
+        - Orgs
+      parameters: []
+      produces:
+        - application/json
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Org Name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              lowername: org_name
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              admins:
+                - '[''1415203847'']'
+              max_mission_number: 5
+              max_user_number: 5
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+              lowername:
+                type: string
+                description: lowercase version of name to check for doubles
+              members:
+                type: array
+                description: An array of org members
+                items: {}
+              admins:
+                type: array
+                description: An array of org admins
+                items: {}
+              max_mission_number:
+                type: number
+                description: The max number of users that can be added in org
+              max_user_number:
+                type: number
+                description: the max number of missions that can be created in org
+            required:
+              - name
+              - created
+              - updated
+              - lowername
+      summary: Create New Orgs
+      description: + name (string) - The org name
+      tags:
+        - Orgs
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              email_admin:
+                type: array
+                description: >-
+                  A collection of emails of users who will be promoted to org
+                  admin
+            required:
+              - name
+      produces:
+        - application/json
+  '/groups/{id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a group description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+            required:
+              - name
+              - org
+              - created
+              - updated
+      summary: Get Group
+      description: ''
+      tags:
+        - Groups
+      parameters:
+        - &ref_1
+          name: id
+          in: path
+          description: |
+
+            The ObjectId of the group
+          required: true
+          type: string
+      produces:
+        - application/json
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a group description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+            required:
+              - name
+              - org
+              - created
+              - updated
+      summary: Create Group
+      description: ''
+      tags:
+        - Groups
+      parameters:
+        - *ref_1
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              org:
+                type: string
+                description: The org the group belongs to
+              invitees:
+                type: array
+                description: A collection of emails of users who will be added to the group
+            required:
+              - name
+              - org
+      produces:
+        - application/json
+  '/groups/{id}/invite':
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a group description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+            required:
+              - name
+              - org
+              - created
+              - updated
+      summary: Group invite
+      description: ''
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the group
+          required: true
+          type: string
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              invitees:
+                type: array
+                description: A collection of emails of users who will be added to the group
+      produces:
+        - application/json
+  '/groups/{id}/members':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: user's Name
+                username: user's nickname/username
+                _id: user id
+                firstname: user's first name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: array
+            items: {}
+      summary: Group members
+      description: ''
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the group
+          required: true
+          type: string
+      produces:
+        - application/json
+  '/missions/{id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a missions description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              start_date: '2014-11-11T08:40:51.620Z'
+              end_date: '2014-11-11T08:40:51.620Z'
+              end_submit_date: '2014-11-11T08:40:51.620Z'
+              end_vote_date: '2014-11-11T08:40:51.620Z'
+              phase1:
+                type:
+                  start: '2014-11-11T08:40:51.620Z'
+                  end: '2014-11-12T08:40:51.620Z'
+                  active: true
+                  state:
+                    type: pending
+                  status:
+                    type: wip
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+              start_date:
+                type: string
+              end_date:
+                type: string
+              end_submit_date:
+                type: string
+              end_vote_date:
+                type: string
+              phase1:
+                type: object
+                properties:
+                  type:
+                    type: object
+                    properties:
+                      start:
+                        type: string
+                      end:
+                        type: string
+                      active:
+                        type: boolean
+                      state:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - pending
+                              - ready
+                              - closed
+                            default: pending
+                      status:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - wip
+                              - locked
+                              - finished
+                              - closed
+                              - cancelled
+                            default: wip
+            required:
+              - name
+              - org
+      summary: GetMission
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - &ref_2
+          name: id
+          in: path
+          description: |
+
+            The ObjectId of the mission
+          required: true
+          type: string
+      produces:
+        - application/json
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a missions description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              start_date: '2014-11-11T08:40:51.620Z'
+              end_date: '2014-11-11T08:40:51.620Z'
+              end_submit_date: '2014-11-11T08:40:51.620Z'
+              end_vote_date: '2014-11-11T08:40:51.620Z'
+              phase1:
+                type:
+                  start: '2014-11-11T08:40:51.620Z'
+                  end: '2014-11-12T08:40:51.620Z'
+                  active: true
+                  state:
+                    type: pending
+                  status:
+                    type: wip
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+              start_date:
+                type: string
+              end_date:
+                type: string
+              end_submit_date:
+                type: string
+              end_vote_date:
+                type: string
+              phase1:
+                type: object
+                properties:
+                  type:
+                    type: object
+                    properties:
+                      start:
+                        type: string
+                      end:
+                        type: string
+                      active:
+                        type: boolean
+                      state:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - pending
+                              - ready
+                              - closed
+                            default: pending
+                      status:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - wip
+                              - locked
+                              - finished
+                              - closed
+                              - cancelled
+                            default: wip
+            required:
+              - name
+              - org
+      summary: CreateMission
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - *ref_2
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              description:
+                type: string
+                description: useful description (or not)
+              start_date:
+                type: string
+                description: default to now + 1 day
+              end_date:
+                type: string
+                description: default to now + 36 days
+              end_submit_date:
+                type: string
+                description: default to now + 8 days
+              end_vote_date:
+                type: string
+                description: default to now + 15 days
+              groups:
+                type: array
+                description: >-
+                  A collection of groups of users who will be added to the
+                  mission
+              status:
+                type: string
+                description: >-
+                  specify status of mission, i.e. "wip" or "locked". Locked
+                  missions are published and visible for players, wip missions
+                  are not.
+            required:
+              - name
+              - org
+      produces:
+        - application/json
+  '/missions/{id}/complete/{nb}':
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a missions description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              start_date: '2014-11-11T08:40:51.620Z'
+              end_date: '2014-11-11T08:40:51.620Z'
+              end_submit_date: '2014-11-11T08:40:51.620Z'
+              end_vote_date: '2014-11-11T08:40:51.620Z'
+              phase1:
+                type:
+                  start: '2014-11-11T08:40:51.620Z'
+                  end: '2014-11-12T08:40:51.620Z'
+                  active: true
+                  state:
+                    type: pending
+                  status:
+                    type: wip
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+              start_date:
+                type: string
+              end_date:
+                type: string
+              end_submit_date:
+                type: string
+              end_vote_date:
+                type: string
+              phase1:
+                type: object
+                properties:
+                  type:
+                    type: object
+                    properties:
+                      start:
+                        type: string
+                      end:
+                        type: string
+                      active:
+                        type: boolean
+                      state:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - pending
+                              - ready
+                              - closed
+                            default: pending
+                      status:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - wip
+                              - locked
+                              - finished
+                              - closed
+                              - cancelled
+                            default: wip
+            required:
+              - name
+              - org
+      summary: Mission Members
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - name: id
+          in: path
+          description: |
+
+            The ObjectId of the mission
+          required: true
+          type: string
+        - name: nb
+          in: path
+          description: |
+
+            The mission phase 
+          required: true
+          type: number
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              ideas:
+                type: array
+      produces:
+        - application/json
+  '/missions/{id}/members':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: user's Name
+                username: user's nickname/username
+                _id: user id
+                firstname: user's first name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: array
+            items: {}
+      summary: GetMembers
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - &ref_3
+          name: id
+          in: path
+          description: |
+
+            The ObjectId of the mission
+          required: true
+          type: string
+      produces:
+        - application/json
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a missions description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              start_date: '2014-11-11T08:40:51.620Z'
+              end_date: '2014-11-11T08:40:51.620Z'
+              end_submit_date: '2014-11-11T08:40:51.620Z'
+              end_vote_date: '2014-11-11T08:40:51.620Z'
+              phase1:
+                type:
+                  start: '2014-11-11T08:40:51.620Z'
+                  end: '2014-11-12T08:40:51.620Z'
+                  active: true
+                  state:
+                    type: pending
+                  status:
+                    type: wip
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+              start_date:
+                type: string
+              end_date:
+                type: string
+              end_submit_date:
+                type: string
+              end_vote_date:
+                type: string
+              phase1:
+                type: object
+                properties:
+                  type:
+                    type: object
+                    properties:
+                      start:
+                        type: string
+                      end:
+                        type: string
+                      active:
+                        type: boolean
+                      state:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - pending
+                              - ready
+                              - closed
+                            default: pending
+                      status:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - wip
+                              - locked
+                              - finished
+                              - closed
+                              - cancelled
+                            default: wip
+            required:
+              - name
+              - org
+      summary: AddMembers
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - *ref_3
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              emails:
+                type: array
+      produces:
+        - application/json
+    delete:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: Group Name
+              org: '191981981981'
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+              description: this is a missions description
+              members:
+                - '[''1415203908'''
+                - '''1415203847'']'
+              start_date: '2014-11-11T08:40:51.620Z'
+              end_date: '2014-11-11T08:40:51.620Z'
+              end_submit_date: '2014-11-11T08:40:51.620Z'
+              end_vote_date: '2014-11-11T08:40:51.620Z'
+              phase1:
+                type:
+                  start: '2014-11-11T08:40:51.620Z'
+                  end: '2014-11-12T08:40:51.620Z'
+                  active: true
+                  state:
+                    type: pending
+                  status:
+                    type: wip
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              org:
+                type: string
+                description: org the group is attached to
+              created:
+                type: string
+              updated:
+                type: string
+              description:
+                type: string
+                description: useful description (or not)
+              members:
+                type: array
+                description: An array of group members
+                items: {}
+              start_date:
+                type: string
+              end_date:
+                type: string
+              end_submit_date:
+                type: string
+              end_vote_date:
+                type: string
+              phase1:
+                type: object
+                properties:
+                  type:
+                    type: object
+                    properties:
+                      start:
+                        type: string
+                      end:
+                        type: string
+                      active:
+                        type: boolean
+                      state:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - pending
+                              - ready
+                              - closed
+                            default: pending
+                      status:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                              - wip
+                              - locked
+                              - finished
+                              - closed
+                              - cancelled
+                            default: wip
+            required:
+              - name
+              - org
+      summary: RemoveMembers
+      description: ''
+      tags:
+        - Mission
+      parameters:
+        - *ref_3
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              emails:
+                type: array
+      produces:
+        - application/json
+  '/ideas/{idea_id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              title: the idea title
+              description: idea's description
+              creator_id: the creating user
+              mission_id: the idea to which the mission relates
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              description:
+                type: string
+              creator_id:
+                type: string
+              mission_id:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - title
+              - mission_id
+      summary: Get Idea
+      description: ''
+      tags:
+        - Ideas
+      parameters:
+        - &ref_4
+          name: idea_id
+          in: path
+          description: |
+
+            The idea's ObjectId
+          required: true
+          type: string
+      produces:
+        - application/json
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              title: the idea title
+              description: idea's description
+              creator_id: the creating user
+              mission_id: the idea to which the mission relates
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              description:
+                type: string
+              creator_id:
+                type: string
+              mission_id:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - title
+              - mission_id
+      summary: Update Idea
+      description: ''
+      tags:
+        - Ideas
+      parameters:
+        - *ref_4
+      produces:
+        - application/json
+  '/ideas/{idea_id}/vote/{nb}':
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              target_id: 'what the vote bears on, e.g. the idea id'
+              vote_nb: '0'
+              voter_id: the creating user
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              target_id:
+                type: string
+              vote_nb:
+                type: string
+                description: >-
+                  a number expressing the vote. Can be negative of bigger than 1
+                  (string)
+              voter_id:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - target_id
+      summary: Vote on Idea
+      description: >-
+        You can only vote on an idea when the mission phase is appropriate, i.e.
+        after the end_submit_date and before the end_vote_date
+      tags:
+        - Ideas
+      parameters:
+        - name: idea_id
+          in: path
+          description: |
+
+            The idea's ObjectId
+          required: true
+          type: string
+        - name: nb
+          in: path
+          description: |
+            0 (number)
+            The vote
+          required: true
+          type: string
+      produces:
+        - application/json
+  '/votes/{vote_id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              target_id: 'what the vote bears on, e.g. the idea id'
+              vote_nb: '0'
+              voter_id: the creating user
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              target_id:
+                type: string
+              vote_nb:
+                type: string
+                description: >-
+                  a number expressing the vote. Can be negative of bigger than 1
+                  (string)
+              voter_id:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - target_id
+      summary: Get Vote
+      description: ''
+      tags:
+        - Votes
+      parameters:
+        - &ref_5
+          name: vote_id
+          in: path
+          description: |
+
+            The vote's ObjectId
+          required: true
+          type: string
+      produces:
+        - application/json
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              target_id: 'what the vote bears on, e.g. the idea id'
+              vote_nb: '0'
+              voter_id: the creating user
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              target_id:
+                type: string
+              vote_nb:
+                type: string
+                description: >-
+                  a number expressing the vote. Can be negative of bigger than 1
+                  (string)
+              voter_id:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - target_id
+      summary: Update Vote
+      description: ''
+      tags:
+        - Votes
+      parameters:
+        - *ref_5
+      produces:
+        - application/json
+  '/users/{user_id}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              name: user's Name
+              username: user's nickname/username
+              _id: user id
+              firstname: user's first name
+              created: '2014-11-11T08:40:51.620Z'
+              updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              username:
+                type: string
+              _id:
+                type: string
+              firstname:
+                type: string
+              created:
+                type: string
+              updated:
+                type: string
+            required:
+              - name
+              - username
+              - _id
+      summary: Get User
+      description: ''
+      tags:
+        - Users
+      parameters:
+        - name: user_id
+          in: path
+          description: |
+
+            The ObjectId of the user
+          required: true
+          type: string
+      produces:
+        - application/json
+  /users/:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: user's Name
+                username: user's nickname/username
+                _id: user id
+                firstname: user's first name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: array
+            items: {}
+      summary: Users
+      description: ''
+      tags:
+        - Users
+      parameters: []
+      produces:
+        - application/json
+  '/users/email/{email}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: user's Name
+                username: user's nickname/username
+                _id: user id
+                firstname: user's first name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: array
+            items: {}
+      summary: Get User by email
+      description: ''
+      tags:
+        - Users
+      parameters:
+        - name: email
+          in: path
+          description: |
+
+            The user email
+          required: true
+          type: string
+      produces:
+        - application/json
+  '/users/username/{username}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: user's Name
+                username: user's nickname/username
+                _id: user id
+                firstname: user's first name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+          schema:
+            type: array
+            items: {}
+      summary: Get User by nickname
+      description: ''
+      tags:
+        - Users
+      parameters:
+        - name: username
+          in: path
+          description: |
+
+            The user name
+          required: true
+          type: string
+      produces:
+        - application/json
+  /register:
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              jwt: dmpooeiuzeiuyriuzyeiruyiuezyriueyriueyr
+              roles:
+                - user
+                - orgadmin
+              adminorgs:
+                - '161711919171'
+          schema:
+            type: object
+            properties:
+              jwt:
+                type: string
+                description: the jwt that needs to be included in the header
+              roles:
+                type: array
+                items: {}
+              adminorgs:
+                type: array
+                description: the orgs the user is admin of
+                items: {}
+      summary: Registration
+      description: ''
+      tags:
+        - Profile
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+            required:
+              - email
+              - password
+              - username
+      produces:
+        - application/json
+  /login:
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              jwt: dmpooeiuzeiuyriuzyeiruyiuezyriueyriueyr
+              roles:
+                - user
+                - orgadmin
+              adminorgs:
+                - '161711919171'
+          schema:
+            type: object
+            properties:
+              jwt:
+                type: string
+                description: the jwt that needs to be included in the header
+              roles:
+                type: array
+                items: {}
+              adminorgs:
+                type: array
+                description: the orgs the user is admin of
+                items: {}
+      summary: Login
+      description: ''
+      tags:
+        - Profile
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+            required:
+              - email
+              - password
+      produces:
+        - application/json
+  /me/orgadmins:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json:
+              - name: Org Name
+                created: '2014-11-11T08:40:51.620Z'
+                updated: '2014-11-11T08:40:51.620Z'
+                lowername: org_name
+                members:
+                  - '[''1415203908'''
+                  - '''1415203847'']'
+                admins:
+                  - '[''1415203847'']'
+                max_mission_number: 5
+                max_user_number: 5
+          schema:
+            type: array
+            items: {}
+      summary: Profile orgs
+      description: ''
+      tags:
+        - Profile
+      parameters: []
+      produces:
+        - application/json
+  /me/settings:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json: {}
+          schema:
+            type: object
+            properties: {}
+      summary: Get Settings
+      description: ''
+      tags:
+        - Profile
+      parameters: []
+      produces:
+        - application/json
+    put:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples:
+            application/json: {}
+          schema:
+            type: object
+            properties: {}
+      summary: Save Settings
+      description: ''
+      tags:
+        - Profile
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties: {}
+      produces:
+        - application/json
+definitions:
+  LoggedInUser:
+    type: object
+    properties:
+      jwt:
+        type: string
+      roles:
+        type: array
+        items: {}
+      adminorgs:
+        type: array
+        items: {}
+  Org:
+    type: object
+    required:
+      - name
+      - created
+      - updated
+      - lowername
+    properties:
+      name:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+      lowername:
+        type: string
+      members:
+        type: array
+        items: {}
+      admins:
+        type: array
+        items: {}
+      max_mission_number:
+        type: number
+      max_user_number:
+        type: number
+  Orgs Collection: {}
+  Group:
+    type: object
+    required:
+      - name
+      - org
+      - created
+      - updated
+    properties:
+      name:
+        type: string
+      org:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+      description:
+        type: string
+      members:
+        type: array
+        items: {}
+  Mission:
+    type: object
+    required:
+      - name
+      - org
+    properties:
+      name:
+        type: string
+      org:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+      description:
+        type: string
+      members:
+        type: array
+        items: {}
+      start_date:
+        type: string
+      end_date:
+        type: string
+      end_submit_date:
+        type: string
+      end_vote_date:
+        type: string
+      phase1:
+        type: object
+  Mission Members: {}
+  Idea:
+    type: object
+    required:
+      - title
+      - mission_id
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      creator_id:
+        type: string
+      mission_id:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+  Vote:
+    type: object
+    required:
+      - target_id
+    properties:
+      target_id:
+        type: string
+      vote_nb:
+        type: string
+      voter_id:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+  User:
+    type: object
+    required:
+      - name
+      - username
+      - _id
+    properties:
+      name:
+        type: string
+      username:
+        type: string
+      _id:
+        type: string
+      firstname:
+        type: string
+      created:
+        type: string
+      updated:
+        type: string
+  Registration: {}
+  Login: {}
+  Profile: {}
+  Settings:
+    type: object
+    properties:
+      language:
+        type: string

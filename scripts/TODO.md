@@ -1,0 +1,2 @@
+- Study other loc possibilities e.g. i18n for example 
+- Share loc accross ressources (i.e. use JSON)
